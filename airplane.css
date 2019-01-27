@@ -1,0 +1,82 @@
+body{
+    background: url(back2.jpg) center center no-repeat;
+    background-size: cover;
+}
+
+.container{
+    background: url(c9.jpg);
+    background-size: cover;
+    margin:40px auto 0;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 500px;
+    height: auto;
+    box-shadow: 0 10px 15px -8px #000;
+    border-radius: 5px;
+    
+}
+form{
+    font-family: cursive;
+}
+h2{
+    color:white;
+    border-bottom:solid 1px white;
+    text-align: center;
+    padding-bottom: 10px;
+    font-size:30px;
+}
+label{
+    color:aliceblue;
+    margin:40px 0 ;
+    font-size:20px;
+    font-family: cursive;
+    
+}
+
+select{
+    padding: 5px 20px;
+    text-align: center;
+    font-size: 15px;
+    font-family: cursive;
+    margin-left:55px;
+}
+
+#source{
+    margin-left: 95px;
+}
+
+input[type="date"]{
+    margin-left: 120px;
+    padding: 2px 0 2px 10px;
+    font-size: 15px;
+}
+
+button{
+    padding: auto;
+    display: block;
+    border-radius:10px ;
+    margin:auto;
+    width:80%;
+    height:50px;
+    font-size: 20px;
+    background-color:#708090;
+    
+}
+
+.Fare{
+    color: white;
+}
+
+.Fare{
+    text-align: center;
+    display: block;
+}
+
+
+
+
+
+
+
+
+

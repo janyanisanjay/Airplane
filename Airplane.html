@@ -1,0 +1,399 @@
+<html>
+    <heaad>
+        <title>Airplane Booking</title>
+        <link rel="stylesheet" href="airplane.css" >
+        <link rel="icon" type="image/png" href="Icon.png" >
+    </heaad>
+    <body>
+        <div class="Container">
+          <h2>Airline Booking</h2>
+          <div class="book">
+               <form>
+                   <label>Source</label>
+                   <select id="source">
+                       <option value=0 disabled selected>-------Choose your source--------</option>
+                       <option value=1>Mumbai</option>
+                       <option value=2>Delhi</option>
+                       <option value=3>Goa</option>
+<!--
+                       <option value=4>Chennai</option>
+                       <option value=5>Kolkata</option>
+-->
+                    </select>
+                    <br/><br/>
+                   <label>Destination</label>
+                    
+                   
+                   <select id="destination">
+                       <option value=0 disabled selected>-----Choose your destination-----</option>
+                       <option value=1>Mumbai</option>
+                       <option value=2>Delhi</option>    
+                       <option value=3>Goa</option>
+                       <option value=4>Chennai</option>
+                       <option value=5>Kolkata</option>
+                    </select>
+                    <br/><br/>
+                    <label>Date</label>
+                    <input id="date" type="date" min="2018-10-11" max="2018-12-31">
+                    <br/><br/>
+                    
+                    <label>Adults</label>
+                    <input id="Adults" type="number" min="1" max="10" onblur="1" placeholder="1">
+                    
+                    <label style="padding-left: 190px;">Childs</label>
+                    <input id="Childs" type="number" min="0" max="10" onblur="1" placeholder="0">
+                    <br/><br/>
+                    <label>Class</label>
+                   
+                   
+                    <input  id="c1" type="radio" value="1" name="Class" style="margin-left:120px;" checked><label for="Economic">Economic</label>
+                    <input  id="c1" type="radio" value="1" name="Class" style="margin-left:30px; "><label for="Buisness">Buisness</label>
+                    
+                
+                    <br/><br/><br/>
+                    <button type="button" id="check" >CHECK!!!</button>
+                    
+                    
+               </form>
+        </div>
+        
+          
+           <div class="Fare" id="fa">
+               <p id="total-fare">Total fare</p>
+               <p style="margin-left:180px;" id="rs">₹</p>
+               <p id="Fare" style="font-size: 25px; font-family: sans-serif"></p>
+               <p id="Distance"style="font-size: 15px"></p>
+               
+               <p id="week" style="font-size: 13px"></p>
+               <p id="ur" style="font-size:16px; color:aqua">Urgent</p>
+           </div>
+            
+        </div>
+        
+        
+        
+        <script>
+            function calculate(){
+                var sorc = document.getElementById("source").value;
+                var dest= document.getElementById("destination").value;
+                var da=document.getElementById("date").value;
+                var cl=document.getElementById("c1").value;
+                
+                
+    //**********************Getting Value of Radio Button*****************
+                //getRadioVal(this, "Class");
+                    //
+//                var ca;
+//                if(cls == 2)
+//                    {
+//                       ca=document.getElementById('c2').value; 
+//                    }
+//                
+//                
+//                if(cls == 1)
+//                    {
+//                       ca=document.getElementById('c1').value; 
+//                    }
+                
+// *****************************************************************************                
+                
+                
+                
+                var adul=document.getElementById("Adults").value;
+                var child=document.getElementById("Childs").value;
+                
+                
+                
+    //*****************Validations*****************************************            
+                if( sorc == 0 || dest == 0)
+                {
+                   window.alert("Enter values");
+                   return;
+                }
+                
+                if (da == "")
+                {
+                        window.alert("Enter Date");
+                        return;
+                }
+                
+                
+    //*******************Code for distance******************
+                var dist;
+                
+                
+    //**********************From Mumbai**************************
+                if(sorc == 1 )
+                {
+                    if(dest == 1)
+                    {
+                        //document.getElementById("Fare").style.display='none';
+                        window.alert("Source and destination same!!!!");
+                        return;
+                        
+                    }
+                    if(dest == 2)
+                    {
+                        dist = 1420;
+                    }
+                    else if(dest==3)
+                    {
+                        dist=586;
+                    }
+                    else if(dest==4)
+                        {
+                            dist=1337;
+                        }
+                    else if(dest==5)
+                        {
+                            dist=2046;
+                        }
+                    
+                }
+                
+    //**************************From Delhi************************
+                if(sorc == 2 )
+                {
+                    if(dest == 2)
+                    {
+                        window.alert("Source and destination same!!!!");
+                        return;
+                        
+                    }
+                    if(dest == 1)
+                    {
+                        dist = 1420;
+                    }
+                    else if(dest==3)
+                    {
+                        dist=1989;
+                    }
+                    else if(dest==4)
+                        {
+                            dist=2210;
+                        }
+                    else if(dest==5)
+                        {
+                            dist=1490;
+                        }
+                    
+                }
+                
+                
+    /////*************-----------From Goa-----**********************            
+                
+                if(sorc == 3 )
+                {
+                    if(dest == 3)
+                    {
+                        window.alert("Source and destination same!!!!");
+                        return;
+                    }
+                    if(dest == 1)
+                    {
+                        dist = 586;
+                    }
+                    else if(dest==2)
+                    {
+                        dist=1989;
+                    }
+                    
+                    else if(dest==4)
+                        {
+                            dist=910;
+                        }
+                    else if(dest==5)
+                        {
+                            dist=2120;
+                        }
+                    
+                }
+                
+                
+            if (adul == "")
+            {
+                    adul=1;
+            }
+                
+            if (child == "")
+            {
+                    child=0;
+            }
+                
+//                
+            
+//            var w=typeof(y);
+//            var y=String(d);
+//            var z=getDay();
+                
+            //var d = new Date();
+           // var n = da.getDay();
+            var s=typeof(da);
+            var ddat = da.slice(8,10);
+            var dmat = da.slice(5,7);
+                
+                
+            var dmot =Number(dmat); 
+            var ddot =Number(ddat);
+                
+            var july=[07,08,14,15,21,22,28,29];
+            var august=[04,05,11,12,18,19,25,26];
+            var sept=[01,02,08,09,15,16,22,23,29,30];
+            var weekfare;
+            var mfare;
+    //*****************-------------july weekend------------*******************************
+            if(dmot == 07)
+            {
+                mfare=1;
+                var i;
+                for( i=0; i < july.length ; i++)
+                    {
+                        if(ddot == july[i])
+                        {
+                            weekfare=1.3;
+                            break;
+                        }
+                        else
+                        {
+                            weekfare=1;
+                        }
+                    }
+            }
+    //**********************-----------august weekend---------*****************************      
+            
+            if(dmot == 08)
+            {
+                mfare=0.75;
+                var i;
+                for( i=0; i < august.length ; i++)
+                    {
+                        if(ddot == august[i])
+                        {
+                            weekfare=1.3;
+                            break;
+                        }
+                        else
+                        {
+                            weekfare=1;
+                        }
+                    }
+            }
+                
+  //**************************-----------September---------******************      
+        if(dmot == 09)
+            {
+                mfare=0.6;
+                var i;
+                for( i=0; i < sept.length ; i++)
+                    {
+                        if(ddot == sept[i])
+                        {
+                            weekfare=1.3;
+                            break;
+                        }
+                        else
+                        {
+                            weekfare=1;
+                        }
+                    }
+            }        
+                
+    
+            
+                
+                
+                
+                
+        var weekd;
+        if(weekfare == 1.3)
+            {
+                weekd="Weekend";
+            }
+        else{
+            weekd="Weekday"
+        }
+                
+                
+                
+//*************************-----------Urgent-----------*****************
+            var a= new Date();
+            var b=String(a);
+            var urgent;
+//       Tue Jul 03 2018 17:16:14 GMT+0530 (India Standard Time)  
+            var c=b.slice(8,10);
+            var p=a.getMonth();
+            var q=p+1;
+            
+            
+            var d=Number(c);
+            var e=d+1;
+            if(d == 31)
+                {
+                    e=1;
+                }
+                
+                
+            if(dmot == q)
+            {    
+                if(ddot == d || ddot== e)
+                    {
+                        urgent=1.5;
+                    }
+                else{
+                    urgent=1;
+                }
+            }
+            else{
+                urgent=1;
+            }
+        var urg;
+            if(urgent == 1.5)
+                {
+                    urg="Urgent";
+                }
+            else{
+                urg="No-urgent";
+            }
+
+    //**********************************Calculating total frae *************************
+                
+                
+            var tot;
+                
+            tot = (dist*3.2*cl*adul*weekfare*mfare*urgent) + (dist*2.2*cl*child*weekfare*mfare*urgent);
+            var tott=tot.toFixed(0);
+                
+                
+                
+    //*************************  print*************************
+            //document.getElementById("Fa").style.display='block';
+            document.getElementById("total-fare").style.display='block';
+            document.getElementById("Distance").innerHTML="Distance:"+dist+" km";
+            document.getElementById("Fare").innerHTML="₹" + tott;
+            document.getElementById("week").innerHTML=weekd;
+            if(urg == "Urgent"){
+                document.getElementById("ur").style.display='block';    
+            }
+            else{
+                document.getElementById("ur").style.display='none';
+            }
+                
+            }
+            
+            
+            document.getElementById("ur").style.display='none';
+            document.getElementById("total-fare").style.display='none';
+            document.getElementById("rs").style.display='none';
+            
+            
+            
+            document.getElementById("check").onclick = function(){
+                calculate();
+                
+            }
+            
+            
+        </script>
+    </body>
+    
+</html>
